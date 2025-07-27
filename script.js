@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
+    import { getFirestore, doc, setDoc } from "firebase/firestore";
+
+const db = getFirestore();
+await setDoc(doc(db, "users", "userID"), {
+  name: "John",
+  email: "john@example.com"
+});
     // --- INITIALIZATION ---
     // Generate captchas for both forms on page load
     generateCaptcha('login');
